@@ -1,7 +1,7 @@
 package me.nicolaferraro.datamesh.quickstart;
 
-import me.nicolaferraro.datamesh.client.DataMeshClient;
-import me.nicolaferraro.datamesh.client.DataMeshEvent;
+import me.nicolaferraro.datamesh.client.api.DataMeshClient;
+import me.nicolaferraro.datamesh.client.api.DataMeshEvent;
 import me.nicolaferraro.datamesh.springboot.annotation.DataMeshListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -38,7 +38,7 @@ public class Application {
     }
 
 
-    @Scheduled(fixedDelay = 500, initialDelay = 500)
+    @Scheduled(fixedDelay = 5000, initialDelay = 5000)
     public void push() {
         client.pushEvent("Hello", "lippa", "cippa-" + UUID.randomUUID(), "v1");
     }
