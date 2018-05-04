@@ -5,3 +5,15 @@ spec:
       - env:
         - name: DATAMESH_HOST
           value: @project.artifactId@-datamesh-node
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 180
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 10
