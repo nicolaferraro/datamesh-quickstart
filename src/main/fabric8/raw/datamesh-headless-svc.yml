@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: @project.artifactId@
+    kind: datamesh
+  name: @project.artifactId@-datamesh-node-headless
+spec:
+  clusterIP: None
+  ports:
+  - name: 6543-tcp
+    port: 6543
+    protocol: TCP
+    targetPort: 6543
+  selector:
+    app: @project.artifactId@
+    kind: datamesh
